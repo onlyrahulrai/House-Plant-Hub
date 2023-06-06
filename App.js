@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import { useFonts } from "expo-font";
+import AuthNavigator from "./src/navigations/AuthNavigator";
+
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: "transparent",
+    color: "white",
+  },
+};
 
 export default function App() {
+  const [loaded] = useFonts({
+    InterBold: require("./src/assets/fonts/Inter-Bold.ttf"),
+    InterSemiBold: require("./src/assets/fonts/Inter-SemiBold.ttf"),
+    InterMedium: require("./src/assets/fonts/Inter-Medium.ttf"),
+    InterRegular: require("./src/assets/fonts/Inter-Regular.ttf"),
+    InterLight: require("./src/assets/fonts/Inter-Light.ttf"),
+  });
+
+  if (!loaded) return null;
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer theme={theme}>
+      <AuthNavigator />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
