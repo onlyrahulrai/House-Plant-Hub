@@ -5,5 +5,4 @@ export {default as SliderComponent} from "./home/Slider";
 export {default as CategoriesComponent} from "./home/Categories";
 export {default as IndoorPlantsComponent} from "./home/IndoorPlants";
 export {default as OutdoorPlantsComponent} from "./home/OutdoorPlants";
-export {default as TrendingPlantsComponent} from "./home/TrendingPlants";
 export {default as PlantsForYouComponent} from "./home/PlantsForYou";

@@ -1,6 +1,8 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Text, View, FlatList, TouchableOpacity, Image } from "react-native";
 import tw from "twrnc";
+import { ROUTES } from "../../constants";
 
 const slides = [
   {
@@ -63,6 +65,7 @@ const slides = [
 ];
 
 const IndoorPlants = () => {
+  const navigation = useNavigation();
   return (
     <View style={tw`px-4 mt-2`}>
       <Text style={tw`text-lg font-bold`}>Outdoor Plants</Text>
@@ -71,7 +74,7 @@ const IndoorPlants = () => {
         data={slides}
         renderItem={({ item }) => (
           <View style={tw`mx-3 items-center w-44`}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate(ROUTES.PRODUCT,{title:item.title})}>
               <Image
                 source={item.image}
                 style={tw`h-32 w-44 rounded-lg`}

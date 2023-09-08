@@ -41,7 +41,7 @@ const Slider = () => {
     <FlatList
       data={slides}
       renderItem={({ item }) => (
-        <View style={[tw`mt-4`, { width}]}>
+        <View style={[tw`mt-1`, { width}]}>
           <View style={tw`items-center justify-center mx-4 relative`}>
             <Image
               source={item.image}

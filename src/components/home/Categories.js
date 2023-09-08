@@ -1,8 +1,9 @@
 import React from "react";
 import { Text, View, FlatList, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 import tw from "twrnc";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
-import { COLORS } from "../../constants";
+import { COLORS, ROUTES } from "../../constants";
 
 const slides = [
   {
@@ -38,6 +39,8 @@ const slides = [
 ];
 
 const Categories = () => {
+  const navigation = useNavigation()
+  
   return (
     <View style={tw`px-4`}>
       <View style={tw`items-start flex-row`}>
@@ -63,6 +66,7 @@ const Categories = () => {
             <View style={tw`mx-2 items-center`}>
               <TouchableOpacity
                 style={tw`w-16 h-16 items-center justify-center`}
+                onPress={() => navigation.navigate(ROUTES.CATEGORIES_NAVIGATOR,{screen:ROUTES.CATEGORY_DETAIL,params:{id:item.id,name:item.title}})}
               >
                 <Image
                   source={item.image}

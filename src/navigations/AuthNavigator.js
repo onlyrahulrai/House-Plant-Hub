@@ -16,10 +16,6 @@ import {
 import DrawerNavigation from "./DrawerNavigator";
 import { COLORS, ROUTES } from "../constants";
 
-
-
-
-
 const Stack = createNativeStackNavigator();
 
 function AuthNavigator() {
